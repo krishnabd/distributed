@@ -1,0 +1,13 @@
+# role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: deployment-and-service-creator
+rules:
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["create", "get", "update", "delete", "list", "watch"]
+- apiGroups: [""]
+  resources: ["services"]
+  verbs: ["create", "get", "update", "delete", "list", "watch"]
