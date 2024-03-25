@@ -55,9 +55,9 @@ class AWSUploader(object):
 
     def check_prereqs(self):
         # Check for AWS credentials and bucket name
-        self.aws_access_key_id = "AKIAYAHFYGI7M6SYIVVL"
-        self.aws_secret_access_key = "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"
-        self.bucket_name = "mynewbucket.125"
+        self.aws_access_key_id = os.environ.get("AWS_ACCESS_KEY_ID")
+        self.aws_secret_access_key = os.environ.get("AWS_SECRET_ACCESS_KEY")
+        self.bucket_name = os.environ.get("BUCKET_NAME")
 
         if not all([self.aws_access_key_id, self.aws_secret_access_key, self.bucket_name]):
             return False

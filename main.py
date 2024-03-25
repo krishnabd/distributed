@@ -18,10 +18,9 @@ class AWSUploader(object):
         if not os.path.exists('.env'):
             print('Please create a .env file and populate AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and bucket_name fields.')
             return False
-
-        self.aws_access_key_id = "AKIAYAHFYGI7M6SYIVVL"
-        self.aws_secret_access_key = "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"
-        self.bucket_name = "mynewbucket.125"
+        self.aws_access_key_id = os.environ.get("AWS_ACCESS_KEY_ID")
+        self.aws_secret_access_key = os.environ.get("AWS_SECRET_ACCESS_KEY")
+        self.bucket_name = os.environ.get("BUCKET_NAME")
 
         if self.aws_access_key_id is None or self.aws_secret_access_key is None or self.bucket_name is None:
             print('Please create a .env file and populate AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and bucket_name values.')
